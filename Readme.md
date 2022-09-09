@@ -96,11 +96,10 @@ Mockware front end application should have the connectivity to Pega and to the W
 
 ### Built With
 
+- [![Pega][pega]][pega-url]
 - [![React][react.js]][react-url]
-- <img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />
-- Pega DX API
+- [![Pega DX API][pega-dx-api]][pega-url]
 - [![TypeScript][typescript]][typescript-url]
-- [![SaSS][typescript]][typescript-url]
 - [![SaSS][sass]][sass-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -230,3 +229,5 @@ Mockware is using Wiremock server
 [sass]: https://img.shields.io/badge/SaSS-1.54.9-purple
 [sass-url]: https://sass-lang.com/
 [pega-url]: https://pega.com/
+[pega]: https://img.shields.io/badge/Pega-8.7-00ccff
+[pega-dx-api]: https://img.shields.io/badge/PegaDX-00ccff
