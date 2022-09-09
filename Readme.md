@@ -19,7 +19,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/msnisha/mockware">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" >
   </a>
 
   <h3 align="center">Mockware</h3>
@@ -68,7 +68,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://demo.mockware.xyz)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -90,7 +90,7 @@ The Mockware application contains two parts. One part is a Pega component built 
 build on React JS.
 
 - [![React][react.js]][react-url]
-- [![Pega][pega]][pega-url]
+- [![Pega][pega]][pega-url][86x28]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
