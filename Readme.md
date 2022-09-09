@@ -1,18 +1,5 @@
 <a name="readme-top"></a>
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -26,9 +13,6 @@
 
   <p align="center">
     An awesome Pega Community Hackathon 2022 Project!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
     <a href="https://demo.mockware.xyz">View Demo</a>
     ·
@@ -57,8 +41,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -70,17 +52,22 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://demo.mockware.xyz)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+I wanted to use the Pega Community Hackathon 2022 as an opportunity to build something more impactful and helps to wider Pega community.
+Building a domains specific applications will help to demostrate Pega's features but cannot be used by as it is as eash business is unique in their process. So I choose to build a domain agnostic Pega component application which can be easily plugged in to any existingor new Pega applications across many business domain. Working in Pega more than 15 years I have built many Pega components some of them includes QR code scanner component for allowing Pega running on mobile browser to scan codes, component to support browser native push notification in Pega, A component for text extraction using teserract.
 
-Here's why:
+This time I choose to build a Pega component to provide a smart mock service provider component for Pega. As more and more companies prefer micro service architecture the integrations are crusial part of all the pega projects as Pega is the orchestrator for many business process applications. Many times we feel the need of stub service to unblock our development and testing.
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+Here's some scenarion where a mock service is needed:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+- Running scheduled automation testing without mutating the actual data.
+- Missing actual data for satisfying some scenarios where testing needs to be performed
+- The actual service is not yet available, but the Pega implementation and testing needs to continue
+- Needs to easily replicate a production bug for further analyze in lower environment by mimicking the data to match production scenario.
+- Testing the applications for different behaviors when the data is not controlled by the organization something like weather data or stock market data.
+- Testing exceptional / error scenarios
+- Testing how the application reacts to performance issues from service. (By adding delays to the stub responses)
 
-Use the `BLANK_README.md` to get started.
+[diagram-image]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,7 +77,7 @@ The Mockware application contains two parts. One part is a Pega component built 
 build on React JS.
 
 - [![React][react.js]][react-url]
-- [![Pega]<img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />[pega-url]
+- <img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -211,11 +198,10 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/msnisha/
 [product-screenshot]: images/screenshot.png
+[diagram-image]: images/diagram.jpg
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [pega-url]: https://pega.com/
