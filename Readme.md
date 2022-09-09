@@ -29,6 +29,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#built-with">The History</a></li>
+        <li><a href="#built-with">The Technical Details</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -37,6 +39,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#installation">Configurations</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -52,12 +55,16 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://demo.mockware.xyz)
 
+Mockware is a Pega component with a optional enhanced front end application to provide mock services for Pega integrations. Before getting down to the technical, lets go through the reason for choosing the project and the benefit it brings.
+
+### The History
+
 I wanted to use the Pega Community Hackathon 2022 as an opportunity to build something more impactful and helps to wider Pega community.
 Building a domains specific applications will help to demostrate Pega's features but cannot be used by as it is as eash business is unique in their process. So I choose to build a domain agnostic Pega component application which can be easily plugged in to any existingor new Pega applications across many business domain. Working in Pega more than 15 years I have built many Pega components some of them includes QR code scanner component for allowing Pega running on mobile browser to scan codes, component to support browser native push notification in Pega, A component for text extraction using teserract.
 
 This time I choose to build a Pega component to provide a smart mock service provider component for Pega. As more and more companies prefer micro service architecture the integrations are crusial part of all the pega projects as Pega is the orchestrator for many business process applications. Many times we feel the need of stub service to unblock our development and testing.
 
-Here's some scenarion where a mock service is needed:
+Here's some scenario where a mock service is needed:
 
 - Running scheduled automation testing without mutating the actual data.
 - Missing actual data for satisfying some scenarios where testing needs to be performed
@@ -67,14 +74,21 @@ Here's some scenarion where a mock service is needed:
 - Testing exceptional / error scenarios
 - Testing how the application reacts to performance issues from service. (By adding delays to the stub responses)
 
-![Deployment Diagram][diagram-image]
+So the project Mockware born.
+
+### The Technical Details
+
+The Mockware application includes two main component. One component is a Pega component application built in Pega 8 and the other part is a optional front end application build on React JS. The mockware application component provides a Pega portal using React JS which can be used as well instead of the external front end application built on React JS. Also Mockware application connects to the Wiremock server for hosting the stub services. Below is a simplified view of the required connectivities between each components for Mockware to work smoothly.
+
+![Deployment Diagram][diagram-deployment]
+
+Mockware front end application uses Pega basic authentication to login. It reads the list of applicable connectors based on authenticated users. It uses Pega DX API service to read the data from Pega. Mockware Pega component installed in Pega provide the needed details from Pega and also does the changes back to Pega as when user making changes through the front end application.
+
+Mockware front end application should have the connectivity to Pega and to the Wiremock service.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-
-The Mockware application contains two parts. One part is a Pega component built in Pega 8 and the other part is a front end application
-build on React JS.
 
 - [![React][react.js]][react-url]
 - <img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />
@@ -201,7 +215,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/msnisha/
 [product-screenshot]: images/screenshot.png
-[diagram-image]: images/diagram.jpg
+[diagram-deployment]: images/deployment-diagram.jpg.jpg
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [pega-url]: https://pega.com/
