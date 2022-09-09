@@ -215,7 +215,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/msnisha/
 [product-screenshot]: images/screenshot.png
-[diagram-deployment]: images/deployment-diagram.jpg.jpg
+[diagram-deployment]: images/deployment-diagram.jpg
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [pega-url]: https://pega.com/
