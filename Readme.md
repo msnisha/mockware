@@ -90,7 +90,7 @@ The Mockware application contains two parts. One part is a Pega component built 
 build on React JS.
 
 - [![React][react.js]][react-url]
-- [![Pega][pega]][pega-url]
+- <img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,6 +218,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [product-screenshot]: images/screenshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-
-[pega]: https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg =86x28
 [pega-url]: https://pega.com/
