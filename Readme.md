@@ -55,7 +55,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://demo.mockware.xyz)
 
-Mockware is a Pega component with a optional enhanced front end application to provide mock services for Pega integrations. Before getting down to the technical, lets go through the reason for choosing the project and the benefit it brings.
+Mockware is a Pega component application with modern React JS front end to provide smart mock/stub services for Pega integrations. Before getting down to the technical, lets go through the reason for choosing the project and the benefit it brings.
 
 ### The History
 
@@ -74,7 +74,13 @@ Here's some scenario where a mock service is needed:
 - Testing exceptional / error scenarios
 - Testing how the application reacts to performance issues from service. (By adding delays to the stub responses)
 
-So the project Mockware born.
+So the project Mockware born. Mockware provides the following features.
+
+- Reads meta data from Pega integrations and prepopulates details, allows quick creation of mock services.
+- Provide toggle buttons to enable and disable mock services for selected connectors
+- Displays the request journals to see the request has gone through the mock servers with many level of filters.
+- React JS modern frontend supports dark mode for better user experiences.
+- Provide quick fill snippets with regular expressions for completing the matching rules when creating mock services.
 
 ### The Technical Details
 
@@ -92,6 +98,10 @@ Mockware front end application should have the connectivity to Pega and to the W
 
 - [![React][react.js]][react-url]
 - <img src="https://www.pega.com/themes/custom/pegawww_theme/images/pega-logo.svg" width="86" title="Pega logo" />
+- Pega DX API
+- [![TypeScript][typescript]][typescript-url]
+- [![SaSS][typescript]][typescript-url]
+- [![SaSS][sass]][sass-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,9 +196,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Nish - [@msnisha](https://www.linkedin.com/in/msnisha/)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/msnisha/mockware](https://github.com/msnisha/mockware)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,16 +206,13 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Mockware is using Wiremock server
 
-- [Choose an Open Source License](https://choosealicense.com)
+- [Wiremcok server](https://wiremock.org/)
 - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
 - [Img Shields](https://shields.io)
 - [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
+- [React Icons](https://iconmonstr.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,4 +225,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [diagram-deployment]: images/deployment-diagram.jpg
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[typescript]: https://img.shields.io/badge/TypeScript-%5E4.7.4-blue
+[typescript-url]: https://www.typescriptlang.org/
+[sass]: https://img.shields.io/badge/SaSS-1.54.9-purple
+[sass-url]: https://sass-lang.com/
 [pega-url]: https://pega.com/
