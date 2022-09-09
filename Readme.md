@@ -67,7 +67,7 @@ Here's some scenarion where a mock service is needed:
 - Testing exceptional / error scenarios
 - Testing how the application reacts to performance issues from service. (By adding delays to the stub responses)
 
-[diagram-image]
+![Deployment Diagram][diagram-image]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
