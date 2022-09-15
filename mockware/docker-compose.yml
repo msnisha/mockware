@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  web:
+    image: mockware:01.01
+    ports:
+      - "8092:8080"
+    environment:
+      - WIREMOCK_URL=http://host.docker.internal:8091/
+      - PEGA_URL=http://host.docker.internal:8080/

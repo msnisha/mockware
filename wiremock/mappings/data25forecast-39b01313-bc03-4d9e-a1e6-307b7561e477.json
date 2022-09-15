@@ -1,0 +1,106 @@
+{
+  "id" : "39b01313-bc03-4d9e-a1e6-307b7561e477",
+  "request" : {
+    "urlPath" : "/data/2.5/forecast",
+    "method" : "GET",
+    "headers" : {
+      "mockware_uuid" : {
+        "equalTo" : "3820271144161163"
+      }
+    },
+    "queryParameters" : {
+      "q" : {
+        "equalTo" : "amsterdam"
+      },
+      "appid" : {
+        "equalTo" : "f952069c853fdc392d4015d3c8bd04b3"
+      }
+    },
+    "bodyPatterns" : [ ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\n\t\"status\": \"success\"\n}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "39b01313-bc03-4d9e-a1e6-307b7561e477",
+  "persistent" : true,
+  "priority" : 9,
+  "metadata" : {
+    "name" : "Amsterdam Rainy",
+    "url" : "/data/2.5/forecast?q=amsterdam&appid=f952069c853fdc392d4015d3c8bd04b3",
+    "pyClassName" : "OVS79F-Demo-Int-Waether-GetWeatherAPI",
+    "pyRuleName" : "GetWeather",
+    "uniqueCode" : "3820271144161163",
+    "pathParams" : [ {
+      "pxObjClass" : "Embed-URL-Parameter-ResourcePath",
+      "pyEmptyBehavior" : "REQUIRED",
+      "pyEncoding" : "URL",
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "data",
+      "pyParameterName" : "data",
+      "matchType" : "equals",
+      "matchValue" : "data"
+    }, {
+      "pxObjClass" : "Embed-URL-Parameter-ResourcePath",
+      "pyEmptyBehavior" : "REQUIRED",
+      "pyEncoding" : "URL",
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "2.5",
+      "pyParameterName" : "2.5",
+      "matchType" : "equals",
+      "matchValue" : "2.5"
+    }, {
+      "pxObjClass" : "Embed-URL-Parameter-ResourcePath",
+      "pyEmptyBehavior" : "REQUIRED",
+      "pyEncoding" : "URL",
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "forecast",
+      "pyParameterName" : "forecast",
+      "matchType" : "equals",
+      "matchValue" : "forecast"
+    } ],
+    "queryParams" : [ {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyDesc" : "q",
+      "pyMapFrom" : "Clipboard",
+      "pyMapFromKey" : ".request.query_GET.q",
+      "pyParameterName" : "q",
+      "matchType" : "equals",
+      "matchValue" : "amsterdam"
+    }, {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyDesc" : "appid",
+      "pyMapFrom" : "Constant",
+      "pyMapFromKey" : "f952069c853fdc392d4015d3c8bd04b3",
+      "pyParameterName" : "appid",
+      "matchType" : "equals",
+      "matchValue" : "f952069c853fdc392d4015d3c8bd04b3"
+    } ],
+    "headerParams" : [ {
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "",
+      "matchType" : "equals",
+      "matchValue" : "3820271144161163",
+      "pyParameterName" : "mockware_uuid"
+    }, {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyMapFrom" : "Constant",
+      "pyMapFromKey" : "3820271144161163",
+      "pyParameterName" : "mockware_uuid",
+      "matchType" : "equals",
+      "matchValue" : "3820271144161163"
+    } ],
+    "bodyParams" : [ ],
+    "respHeaderParams" : [ {
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "",
+      "matchType" : "equals",
+      "matchValue" : "application/json",
+      "pyParameterName" : "Content-Type"
+    } ]
+  },
+  "insertionIndex" : 0
+}

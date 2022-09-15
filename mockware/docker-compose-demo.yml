@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  web:
+    image: msnisha/mockware:demo
+    env:
+      - "WIREMOCK_URL=wiremock:8080"
+      - "PEGA_URL=http://localhost:8080/"
+    depends_on:
+      - wiremock
+  wiremock:
+    image: msnisha/wiremock:latest
+    deploy:
+      replicas: 1
+    volumes:
+      - ./mappings:/var/wiremock/mappings
+    networks:
+      - overlay    

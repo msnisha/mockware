@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wiremock:
+    image: wiremock:latest
+    deploy:
+      replicas: 1
+    volumes:
+      - ./mappings:/var/wiremock/mappings
+    ports:
+      - 8091:8080
+    networks:
+      - overlay
+networks:
+  overlay:

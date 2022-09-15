@@ -1,0 +1,99 @@
+{
+  "id" : "9505bc9b-8b2c-4ce6-9c21-0bff59197ce0",
+  "request" : {
+    "urlPath" : "/StockData",
+    "method" : "GET",
+    "headers" : {
+      "mockware_uuid" : {
+        "equalTo" : "79153276632240"
+      },
+      "key" : {
+        "equalTo" : "4DA63F3321C943A7AF75FCFE08482A4C"
+      },
+      "Accept-Version" : {
+        "equalTo" : "2"
+      }
+    },
+    "queryParameters" : {
+      "symbol" : {
+        "equalTo" : "TSLA"
+      }
+    },
+    "bodyPatterns" : [ ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\n    \"Symbol\": \"TSLA\",\n    \"FullTimeEmployees\": 99290,\n    \"Sector\": \"Consumer Cyclical\",\n    \"Industry\": \"Auto Manufacturers\",\n    \"AverageVolume90Day\": 83703166,\n    \"Exchange\": \"NMS\",\n    \"DayHigh\": 282.35,\n    \"ShortName\": \"Tesla, Inc.\",\n    \"LongName\": \"Tesla, Inc.\",\n    \"Change\": -6.950012,\n    \"PreviousClose\": 277.16,\n    \"Price\": 1000,\n    \"Currency\": \"USD\",\n    \"Volume\": 49863195,\n    \"MarketCap\": 846694900000.0,\n    \"ChangePercent\": -0.025075812,\n    \"DayLow\": 269.081,\n    \"BidPrice\": 269.3,\n    \"BidQuantity\": 800,\n    \"AskPrice\": 269.33,\n    \"AskQuantity\": 900,\n    \"AverageVolume10Day\": 53703480,\n    \"YearLow\": 206.85667,\n    \"YearHigh\": 414.49667,\n    \"Beta\": 2.176087,\n    \"PriceEarningsRatio\": 96.849464,\n    \"EarningsPerShare\": 2.79,\n    \"EarningsDate\": \"2022-10-18T00:00:00\",\n    \"ForwardDividend\": null,\n    \"ForwardDividendYield\": null,\n    \"ExDividendDate\": null,\n    \"YearTargetEstimate\": 298.8,\n    \"LastFiscalYearEnd\": \"2021-12-31T00:00:00\",\n    \"LastFiscalQuarterEnd\": \"2022-06-30T00:00:00\",\n    \"ProfitMargin\": 0.14168,\n    \"OperatingMargin\": 0.16139,\n    \"ReturnOnAssets\": 0.10957,\n    \"ReturnOnEquity\": 0.2989,\n    \"Revenue\": 67166000000.0,\n    \"RevenuePerShare\": 21.928,\n    \"QuarterlyRevenueGrowth\": 0.416,\n    \"GrossProfit\": 13606000000.0,\n    \"NetIncomeAvailableToCommon\": 9521000000.0,\n    \"QuarterlyEarningsGrowth\": 0.978,\n    \"Cash\": 18915000000.0,\n    \"CashPerShare\": 6.036,\n    \"Debt\": 6665000000.0,\n    \"DebtToEquityRatio\": 17.699,\n    \"CurrentRatio\": 1.431,\n    \"BookValuePerShare\": 11.648,\n    \"OperatingCashFlow\": 14078000000.0,\n    \"LeveredFreeCashFlow\": 5962750000.0,\n    \"YearChangePercent\": 0.076648235,\n    \"SP500YearChangePercent\": -0.13180667,\n    \"MovingAverage50Day\": 270.67047,\n    \"MovingAverage200Day\": 297.09796,\n    \"SharesOutstanding\": 3133470000.0,\n    \"Float\": 2619393000.0,\n    \"PercentHeldByInsiders\": 0.16433,\n    \"PercentHeldByInstitutions\": 0.44429,\n    \"SharesShort\": 60328888.0,\n    \"ShortRatio\": 0.68,\n    \"ShortPercentOfFloat\": 0.0235,\n    \"ShortPercentOfSharesOutstanding\": 0.019299999,\n    \"ForwardAnnualDividend\": null,\n    \"ForwardAnnualDividendYield\": null,\n    \"TrailingAnnualDividend\": 0.0,\n    \"TrailingAnnualDividendYield\": 0.0,\n    \"FiveYearAverageDividendYield\": null,\n    \"DividendPayoutRatio\": 0.0,\n    \"DividendDate\": null,\n    \"LastSplitFactor\": \"3:1\",\n    \"LastSplitDate\": \"2022-08-25T00:00:00\",\n    \"EDBITDA\": 1.403E+10,\n    \"Open\": 281.065\n}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "fixedDelayMilliseconds" : 500
+  },
+  "uuid" : "9505bc9b-8b2c-4ce6-9c21-0bff59197ce0",
+  "persistent" : true,
+  "priority" : 3,
+  "metadata" : {
+    "name" : "TSLA 1000",
+    "url" : "/StockData?symbol=TSLA",
+    "pyClassName" : "OVS79F-Demo-Int-StockData-GetStockDataAPI",
+    "pyRuleName" : "GetStockData",
+    "uniqueCode" : "79153276632240",
+    "pathParams" : [ {
+      "pxListSubscript" : "1",
+      "pxObjClass" : "Embed-URL-Parameter-ResourcePath",
+      "pyEmptyBehavior" : "REQUIRED",
+      "pyEncoding" : "URL",
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "StockData",
+      "pyParameterName" : "StockData",
+      "matchType" : "equals",
+      "matchValue" : "StockData"
+    } ],
+    "queryParams" : [ {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyDesc" : "symbol",
+      "pyMapFrom" : "Clipboard",
+      "pyMapFromKey" : ".request.query_GET.symbol",
+      "pyParameterName" : "symbol",
+      "matchType" : "equals",
+      "matchValue" : "TSLA"
+    } ],
+    "headerParams" : [ {
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "",
+      "matchType" : "equals",
+      "matchValue" : "79153276632240",
+      "pyParameterName" : "mockware_uuid"
+    }, {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyMapFrom" : "Constant",
+      "pyMapFromKey" : "79153276632240",
+      "pyParameterName" : "mockware_uuid",
+      "matchType" : "equals",
+      "matchValue" : "79153276632240"
+    }, {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyMapFrom" : "Constant",
+      "pyMapFromKey" : "4DA63F3321C943A7AF75FCFE08482A4C",
+      "pyParameterName" : "key",
+      "matchType" : "equals",
+      "matchValue" : "4DA63F3321C943A7AF75FCFE08482A4C"
+    }, {
+      "pxObjClass" : "Embed-InterfaceParameter",
+      "pyMapFrom" : "Constant",
+      "pyMapFromKey" : "2",
+      "pyParameterName" : "Accept-Version",
+      "matchType" : "equals",
+      "matchValue" : "2"
+    } ],
+    "bodyParams" : [ ],
+    "respHeaderParams" : [ {
+      "pyMapFrom" : "CONSTANT",
+      "pyMapFromKey" : "",
+      "matchType" : "equals",
+      "matchValue" : "application/json",
+      "pyParameterName" : "Content-Type"
+    } ]
+  },
+  "insertionIndex" : 4
+}

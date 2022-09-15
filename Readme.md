@@ -156,7 +156,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Supports dark mode
 - [ ] Implement scope supporting for the mock services (Enable simulation only for selected users, access groups or at globally)
 - [ ] Complete the Recording feature to create stubs using actual integration response
-- [ ] Supporting the connector HTTP types (Connect-SOAP)
+- [x] Delayed response options for the stubs to test how app handles the delayed responses
+- [ ] Supporting other Connector Types (Connect-SOAP)
 
 See the [open issues](https://github.com/msnisha/mockware/issues) for a full list of proposed features (and known issues).
 
@@ -164,11 +165,15 @@ See the [open issues](https://github.com/msnisha/mockware/issues) for a full lis
 
 <!-- CONTACT -->
 
-## Contact
+## Links
 
-Nish - [@msnisha](https://www.linkedin.com/in/msnisha/)
+Developer - [@Nish](https://www.linkedin.com/in/msnisha/)
 
-Project Link: [https://github.com/msnisha/mockware](https://github.com/msnisha/mockware)
+Code Repository Link: [https://github.com/msnisha/mockware](https://github.com/msnisha/mockware)
+
+Docker Image Link: [https://hub.docker.com/r/msnisha/mockware](https://hub.docker.com/r/msnisha/mockware)
+
+Hackathon Page Link: [https://devpost.com/software/mockware](https://devpost.com/software/mockware)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
