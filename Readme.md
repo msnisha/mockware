@@ -108,43 +108,36 @@ Mockware front end application should have the connectivity to Pega and to the W
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Mockware contains a docker image and a Pega component application. You can download the docker image from
+[https://hub.docker.com/r/msnisha/mockware](https://hub.docker.com/r/msnisha/mockware) and the product export
+for the Pega component application is available in this repository inside pega directory.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You need to have envirornment with docker CLI installed for running docker containers for Mockware front end and wiremock server.
+Also Pega envirornment should be able to reach the Wiremock server for serving the data from Stub.
 
 ### Installation
 
-Here is the step by step installation instructions. Docker based installation instruction is given for the optional front end component.
+Here is the step by step installation instructions.
 
 1. Download the Pega Product file from /src/pega/rap-v1.rar file and import in any Pega 8.x application
-2. Add the component as built on component for you pega application.
-3. Setup a wiremock server if you don't have one. (Refer <a href="#wiremock-setup">Wiremock installation</a> for detail instruction)
-4. Configure the Wiremock server endpoint in Pega
+2. Add the Mockware component as one of the built on component for your pega application.
+3. Setup a wiremock server if you don't have one. (Refer <a href="https://wiremock.org/docs/getting-started/">Wiremock Getting starter</a> for detail instruction). Wiremock can be installed as docker container or as a standalone server.
+4. Configure the Wiremock server endpoint in Pega. Change the dynamic system setting "" for this.
 5. Add the Pega portal to your access group and launch the portal
 6. Your are ready to Rock :smile:
-7. ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-
-#### Wiremock installation <a name="wiremock-setup"></a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
+7. Optionally you can use the mockware front end application as standalone application. You can follow the steps given in docker hub to setup the Mockware front end as stand alone application. Refer [https://hub.docker.com/r/msnisha/mockware](https://hub.docker.com/r/msnisha/mockware)
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Setting up mockware will only take couple of minutes if you are familiar with docker based deployment. Once setup it will save more time to the Pega development, testing teams and as well as for users to go through the different scenario by toggling the response.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Wiremock match the request agaist define stubs based on different criteria. It allows us to create multiple conditional responses. Also mapping priority can be changed within Mockware for testing output scenarios for same input.
+
+Also there is a delay feature can be configured for stubs in mockware response. This will allow us to test how well we handled performance delays in Pega application. Some time the integration will response faster when the volume is low and can get slower in production with high volume. Testing with slower integration response time, will give us the feeling on how the application handle the delays such as using loading icon, and showing some informative messages.
+
+Stub services can be help is many ways in many project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,9 +147,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [x] Intial Release of the component
 - [x] Supports dark mode
+- [x] Delayed response options for the stubs to test how app handles the delayed responses
 - [ ] Implement scope supporting for the mock services (Enable simulation only for selected users, access groups or at globally)
 - [ ] Complete the Recording feature to create stubs using actual integration response
-- [x] Delayed response options for the stubs to test how app handles the delayed responses
 - [ ] Supporting other Connector Types (Connect-SOAP)
 
 See the [open issues](https://github.com/msnisha/mockware/issues) for a full list of proposed features (and known issues).
