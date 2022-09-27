@@ -8,3 +8,4 @@ services:
     environment:
       - WIREMOCK_URL=http://host.docker.internal:8091/
       - PEGA_URL=http://host.docker.internal:8080/
+      # - PEGA_URL=https://g20obpip.pegace.net/

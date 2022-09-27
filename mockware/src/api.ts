@@ -1,25 +1,30 @@
 import { IBodyPatternMatching, IMapping } from "./interface";
 
+// export const wireMockAdminEndPoint = "http://localhost:8091/__admin/";
+// export const pegaEndPoint = "http://localhost:8080/prweb/api/v1/data/";
+
 export const wireMockAdminEndPoint = "/api/__admin/";
 export const pegaEndPoint = "/pega/prweb/api/v1/data/";
 
-const mappingEndPoint = wireMockAdminEndPoint + "mappings";
+export const mappingEndPoint = wireMockAdminEndPoint + "mappings";
 const persistMappingEndPoint = wireMockAdminEndPoint + "mappings/save"
 
 const nearMissEndPoint = wireMockAdminEndPoint + "near-misses/request-pattern";
 
-const requestsEndPoint = wireMockAdminEndPoint + "requests";
+export const requestsEndPoint = wireMockAdminEndPoint + "requests";
+export const unmatchedReqEndPoint = wireMockAdminEndPoint + "requests/unmatched";
+
 const getAppDataEndPoint = pegaEndPoint + "D_MockwareSettings";
 
 const getAvailableConnectorsEndPoint = pegaEndPoint + "D_AvailableConnectors?";
+export const getSimulatedConnectorsEndPoint = pegaEndPoint + "D_SimulatedConnectors?";
 const getConnectorDetailsEndPoint = pegaEndPoint + "D_GetConnectorDetails?";
 const updateMockSettingEndPoint = pegaEndPoint + "D_UpdateMockSetting?";
-const pegaUsername = "nish@pega.com";
-const pegaPassword = "1qaz@WSX3edc";
+
 
 export const pegaCredentials = {
-  username:"",
-  password:""
+  username: "",
+  password: ""
 };
 
 export const pegaAuthHeaders = () => {
@@ -48,7 +53,7 @@ export const saveMappings = (
 ) => {
   let endPoint = mappingEndPoint;
   let method = "POST";
-  if (mapping.uuid != "") {
+  if (mapping.uuid !== "") {
     endPoint = endPoint + "/" + mapping.uuid;
     method = "PUT";
   }
@@ -97,21 +102,21 @@ export const fetchMissRequestForStub = (
   error: Function,
   mapping: IMapping,
 ) => {
-  let requestBody:{
-    method:string,
-    url?:string,
-    urlPath?:string,
-    urlPathPattern?:string,
+  let requestBody: {
+    method: string,
+    url?: string,
+    urlPath?: string,
+    urlPathPattern?: string,
   } = {
-    method:mapping.request.method,
+    method: mapping.request.method,
 
   };
-  
-  if(mapping.request.urlPath){
-      requestBody.url = mapping.request.urlPath;
-  } else if(mapping.request.urlPathPattern){
-      requestBody.url = mapping.request.urlPathPattern;
- }
+
+  if (mapping.request.urlPath) {
+    requestBody.url = mapping.request.urlPath;
+  } else if (mapping.request.urlPathPattern) {
+    requestBody.url = mapping.request.urlPathPattern;
+  }
   fetch(nearMissEndPoint, {
     method: "POST",
     body: JSON.stringify(requestBody),
@@ -175,10 +180,10 @@ export const fetchConnectorDetails = (
 ) => {
   fetch(
     getConnectorDetailsEndPoint +
-      "pyClassName=" +
-      clasName +
-      "&pyServiceName=" +
-      serviceName,
+    "pyClassName=" +
+    clasName +
+    "&pyServiceName=" +
+    serviceName,
     {
       method: "GET",
       headers: pegaAuthHeaders(),
@@ -200,16 +205,16 @@ export const updateMockSetting = (
 ) => {
   fetch(
     updateMockSettingEndPoint +
-      "pyClassName=" +
-      clasName +
-      "&pyServiceName=" +
-      serviceName +
-      "&action=" +
-      action +
-      "&scope=" +
-      scope +
-      "&uuid=" +
-      uuid,
+    "pyClassName=" +
+    clasName +
+    "&pyServiceName=" +
+    serviceName +
+    "&action=" +
+    action +
+    "&scope=" +
+    scope +
+    "&uuid=" +
+    uuid,
     {
       method: "GET",
       headers: pegaAuthHeaders(),
@@ -251,7 +256,7 @@ export const getMappingBody = (mapping: IMapping) => {
     },
     response: {
       body: mapping.response.body,
-      headers:{
+      headers: {
 
       },
       status: mapping.response.status,
@@ -267,7 +272,7 @@ export const getMappingBody = (mapping: IMapping) => {
   let URLMatchingType = "urlPath";
   mapping.metadata.pathParams.forEach((each, index) => {
     baseURL += "/" + each.matchValue;
-    if (each.matchType == "pattern") {
+    if (each.matchType === "pattern") {
       URLMatchingType = "urlPathPattern";
     }
   });
@@ -275,11 +280,11 @@ export const getMappingBody = (mapping: IMapping) => {
 
 
   mapping.metadata.queryParams.forEach((element) => {
-    if (element.matchType == "pattern") {
+    if (element.matchType === "pattern") {
       mappingBody.request.queryParameters[element.pyParameterName] = {
         matches: element.matchValue,
       };
-    } else if (element.matchType == "equals") {
+    } else if (element.matchType === "equals") {
       mappingBody.request.queryParameters[element.pyParameterName] = {
         equalTo: element.matchValue,
       };
@@ -287,15 +292,15 @@ export const getMappingBody = (mapping: IMapping) => {
   });
 
   mapping.metadata.headerParams.forEach((element) => {
-    if (element.matchType == "pattern") {
+    if (element.matchType === "pattern") {
       mappingBody.request.headers[element.pyParameterName] = {
         matches: element.matchValue,
       };
-    } else if (element.matchType == "equals") {
+    } else if (element.matchType === "equals") {
       mappingBody.request.headers[element.pyParameterName] = {
         equalTo: element.matchValue,
       };
-    } else if (element.matchType == "contains") {
+    } else if (element.matchType === "contains") {
       mappingBody.request.headers[element.pyParameterName] = {
         contains: element.matchValue,
       };
@@ -304,7 +309,7 @@ export const getMappingBody = (mapping: IMapping) => {
 
   if (mapping.request.method !== "GET") {
     mapping.metadata.bodyParams.forEach((element) => {
-      if (element.matchField!=="") {
+      if (element.matchField !== "") {
         let match: IBodyPatternMatching = {
           matchesJsonPath: {
             expression: element.matchField,
@@ -321,37 +326,62 @@ export const getMappingBody = (mapping: IMapping) => {
 };
 
 
-export const getRelativeTime = (time:string)=>{
-    var msPerMinute = 60 * 1000;
-    var msPerHour = msPerMinute * 60;
-    var msPerDay = msPerHour * 24;
-    var msPerMonth = msPerDay * 30;
-    var msPerYear = msPerDay * 365;
+export const getRelativeTime = (time: string) => {
+  var msPerMinute = 60 * 1000;
+  var msPerHour = msPerMinute * 60;
+  var msPerDay = msPerHour * 24;
+  var msPerMonth = msPerDay * 30;
+  var msPerYear = msPerDay * 365;
 
-    let elapsed = Date.now() - +(new Date(time));
+  let elapsed = Date.now() - +(new Date(time));
 
-    if (elapsed < msPerMinute) {
-         return Math.round(elapsed/1000) + ' seconds ago';   
-    }
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed / 1000) + ' seconds ago';
+  }
 
-    else if (elapsed < msPerHour) {
-         return Math.round(elapsed/msPerMinute) + ' minutes ago';   
-    }
+  else if (elapsed < msPerHour) {
+    return Math.round(elapsed / msPerMinute) + ' minutes ago';
+  }
 
-    else if (elapsed < msPerDay ) {
-         return Math.round(elapsed/msPerHour ) + ' hours ago';   
-    }
+  else if (elapsed < msPerDay) {
+    return Math.round(elapsed / msPerHour) + ' hours ago';
+  }
 
-    else if (elapsed < msPerMonth) {
-        return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
-    }
+  else if (elapsed < msPerMonth) {
+    return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
+  }
 
-    else if (elapsed < msPerYear) {
-        return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';   
-    }
+  else if (elapsed < msPerYear) {
+    return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
+  }
 
-    else {
-        return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
-    }
+  else {
+    return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
+  }
 
+}
+
+//save to cookie function
+export const saveToCookie = (key: string, value: string) => {
+  let date = new Date();
+  date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+  let expires = "; expires=" + date.toUTCString();
+  document.cookie = key + "=" + (value || "") + expires + "; path=/";
+}
+
+//remove from cookie function
+export const removeFromCookie = (key: string) => {
+  document.cookie = key + '=; Max-Age=-99999999;';
+}
+
+//read from cookie function
+export const readFromCookie = (key: string) => {
+  let nameEQ = key + "=";
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
 }

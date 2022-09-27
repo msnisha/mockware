@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo = ({ isSmall }: { isSmall?: boolean }) => {
+const Logo = ({ isSmall, isDark }: { isSmall?: boolean, isDark?: boolean }) => {
   return (
     <svg
       width={isSmall ? "50" : "190"}
@@ -10,7 +10,7 @@ const Logo = ({ isSmall }: { isSmall?: boolean }) => {
     >
       <g>
         <text
-          fill="#fff"
+          fill={isDark ? "#fafafa" : "hwb(201deg 21% 56%)"}
           stroke="#000"
           strokeWidth="0"
           x="0"

@@ -10,7 +10,10 @@ import {
   fetchMappings,
   pegaAuthHeaders,
   pegaCredentials,
-} from "./config";
+  readFromCookie,
+  removeFromCookie,
+  saveToCookie,
+} from "./api";
 import Mappings from "./pages/Mappings";
 import Header from "./component/Header";
 import Requests from "./pages/Requests";
@@ -19,7 +22,6 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/Login";
 
 function App() {
-  const [connectors, setConnectors] = useState<Array<IConnector>>([]);
   const [mappings, setMappings] = useState<Array<IMapping>>([]);
   const [CurrentMapping, setCurrentMapping] = useState<IMapping>();
   const [SearchText, setSearchText] = useState("");
@@ -28,9 +30,17 @@ function App() {
   const [AppConfig, setAppConfig] = useState<IAppConfig>();
   const [IsMappingLoading, setIsMappingLoading] = useState(false);
   const [IsSidebarExpanded, setIsSidebarExpanded] = useState(false);
-  const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const [IsLoginLoading, setIsLoginLoading] = useState(false);
   const [isInDarkMode, setIsInDarkMode] = useState(false);
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
+
+
+  let data = readFromCookie("credentials");
+  if (data) {
+    let credData = JSON.parse(data);
+    pegaCredentials.username = credData.username;
+    pegaCredentials.password = credData.password;
+  };
 
   const loadMappings = () => {
     setIsMappingLoading(true);
@@ -42,7 +52,7 @@ function App() {
             setIsMappingLoading(false);
           },
           (err: Error) => {
-            console.log(Error);
+            console.error(Error);
             setHasError(true);
             setIsMappingLoading(false);
           }
@@ -51,19 +61,8 @@ function App() {
     );
   };
 
-  const loadConnectors = () => {
-    fetchAvailableConnectors(
-      (results: Array<IConnector>) => {
-        setConnectors(results);
-      },
-      (err: Error) => {
-        setHasError(true);
-        console.log(Error);
-      }
-    );
-  };
-
   useEffect(() => {
+    handleLogin(pegaCredentials.username, pegaCredentials.password);
     loadMappings();
   }, []);
 
@@ -76,7 +75,8 @@ function App() {
         setAppConfig(results);
         setIsLoggedIn(true);
         setIsLoginLoading(false);
-        loadConnectors();
+        saveToCookie("credentials", JSON.stringify(pegaCredentials));
+
       },
       (err: Error) => {
         setIsLoggedIn(false);
@@ -88,6 +88,7 @@ function App() {
   const handleLogout = () => {
     pegaCredentials.username = "";
     pegaCredentials.password = "";
+    removeFromCookie("credentials");
     setIsLoggedIn(false);
   };
 
@@ -121,43 +122,26 @@ function App() {
         isCollapsed={!IsSidebarExpanded}
       />
       <main className={"main"}>
-        {CurrentView == "" && (
-          <Home
-            mappings={mappings}
-            connectors={connectors}
-            setCurrentView={setCurrentView}
-            HasError={HasError}
-          />
+        {CurrentView === "" && (
+          <Home setCurrentView={setCurrentView} />
         )}
-        {CurrentView == "Simulations" && (
-          <Connectors
-            connectors={connectors}
-            mappings={mappings}
-            loadConnectors={loadConnectors}
-            loadMappings={loadMappings}
-          />
-        )}
-        {CurrentView == "Mappings" && (
+        {CurrentView === "Mappings" && (
           <Mappings
-            mappings={mappings}
             setCurrentMapping={setCurrentMapping}
-            loadMappings={loadMappings}
             setCurrentView={setCurrentView}
             IsMappingLoading={IsMappingLoading}
           />
         )}
-        {CurrentView == "Connectors" && (
+        {CurrentView === "Connectors" && (
           <Connectors
-            connectors={connectors}
             mappings={mappings}
             loadMappings={loadMappings}
-            loadConnectors={loadMappings}
           />
         )}
-        {CurrentView == "Requests" && (
+        {CurrentView === "Requests" && (
           <Requests mapping={CurrentMapping} SearchText={SearchText} />
         )}
-        {CurrentView == "Recordings" && <Recordings />}
+        {CurrentView === "Recordings" && <Recordings />}
       </main>
       <Footer />
       {/* {ModalData && <Modal data={ModalData} />} */}

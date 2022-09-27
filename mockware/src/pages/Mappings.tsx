@@ -1,33 +1,66 @@
-import { connect } from "http2";
-import React from "react";
-import Card from "../component/Card";
+import React, { useEffect } from "react";
+
 import {
   LoadingIconSimple,
   RefreshIcon,
   RequestIcon,
-  TrashIcon,
 } from "../component/Icons";
-import Priority from "../component/Priority";
 import NotFound from "../component/NotFound";
 import Pagination from "../component/Pagination";
-import { IConnector, IMapping } from "../interface";
+import { IMapping } from "../interface";
+import { fetchMappings } from "../api";
+import Loading from "../component/Loading";
 
 const Mappings = ({
-  mappings,
-  loadMappings,
   setCurrentMapping,
   setCurrentView,
   IsMappingLoading,
 }: {
-  mappings: Array<IMapping>;
-  loadMappings: Function;
   setCurrentMapping: Function;
   setCurrentView: Function;
   IsMappingLoading: boolean;
 }) => {
+
+  const [mappings, setMappings] = React.useState<Array<IMapping>>([]);
+  const [IsLoading, setIsLoading] = React.useState(false);
+  const [CurrentPage, setCurrentPage] = React.useState(1);
+  const [HasError, setHasError] = React.useState(false);
+  const PageSize = 10;
+
+  const loadMappings = () => {
+    setIsLoading(true);
+    setTimeout(
+      () =>
+        fetchMappings(
+          (results: Array<IMapping>) => {
+            setMappings(results);
+            setIsLoading(false);
+          },
+          (err: Error) => {
+            console.error(Error);
+            setHasError(true);
+            setIsLoading(false);
+          }
+        ),
+      1000
+    );
+  };
+
+  useEffect(() => {
+    loadMappings();
+    return () => {
+
+    }
+  }, []);
+
   return (
-    <React.Fragment>
-      <div className="page">
+
+
+    <div className="page">
+      {IsLoading && <Loading title="Loading the stub mappings" />}
+      {!IsLoading && HasError && <div>
+        Error occured while loading the stub mappings</div>}
+      {!IsLoading && <React.Fragment>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <h1>Stub Mappings</h1>
@@ -137,8 +170,9 @@ const Mappings = ({
             message="Create a stub by going to connector page"
           />
         )}
-      </div>
-    </React.Fragment>
+      </React.Fragment>}
+    </div>
+
   );
 };
 

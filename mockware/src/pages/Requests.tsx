@@ -4,8 +4,8 @@ import Loading from "../component/Loading";
 import Modal from "../component/Modal";
 import NotFound from "../component/NotFound";
 import Pagination from "../component/Pagination";
-import { fetchRequests } from "../config";
-import { IMapping, IRequest, IRequestForStub } from "../interface";
+import { fetchRequests } from "../api";
+import { IMapping, IRequest } from "../interface";
 import RequestItem from "./RequestItem";
 
 const Requests = ({
@@ -19,7 +19,7 @@ const Requests = ({
   const [Requests, setRequests] = useState<Array<IRequest>>([]);
   const [mode, setMode] = useState(mapping ? "forStub" : "journal");
   const [FilterBySearchText, setFilterBySearchText] = useState(
-    SearchText != "" ? true : false
+    SearchText !== "" ? true : false
   );
   const [IsUnmatched, setIsUnmatched] = useState(false);
   const [SelectedRequest, setSelectedRequest] = useState<IRequest>();
@@ -43,11 +43,11 @@ const Requests = ({
 
   useEffect(() => {
     loadRequests();
-    if (SearchText != "") {
+    if (SearchText !== "") {
       setFilterBySearchText(true);
       setMode("journal");
     }
-    return () => {};
+    return () => { };
   }, [mapping, SearchText]);
 
   const PageSize = 6;
@@ -56,7 +56,7 @@ const Requests = ({
     (request: IRequest) => {
       if (IsUnmatched) {
         return !request.wasMatched;
-      } else if (mode == "forStub") {
+      } else if (mode === "forStub") {
         return request.wasMatched && request.stubMapping.id == mapping?.uuid;
       } else if (FilterBySearchText) {
         return JSON.stringify(request).includes(SearchText);
@@ -78,7 +78,7 @@ const Requests = ({
                 <a
                   href="#"
                   className={
-                    !IsUnmatched && !FilterBySearchText && mode == "journal"
+                    !IsUnmatched && !FilterBySearchText && mode === "journal"
                       ? "active"
                       : ""
                   }
@@ -108,7 +108,7 @@ const Requests = ({
                 {mapping && (
                   <a
                     href="#"
-                    className={mode == "forStub" ? "active" : ""}
+                    className={mode === "forStub" ? "active" : ""}
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
@@ -193,7 +193,7 @@ const Requests = ({
           </div>
         )}
 
-        {!IsLoading && filteredRequests.length == 0 && mode === "journal" && (
+        {!IsLoading && filteredRequests.length === 0 && mode === "journal" && (
           <NotFound
             title="No requests found"
             message="Requests are generated when simulation is enabled on Connector."
@@ -201,7 +201,7 @@ const Requests = ({
         )}
 
         {!IsLoading &&
-          filteredRequests.length == 0 &&
+          filteredRequests.length === 0 &&
           mode === "forStub" &&
           !IsLoading && (
             <NotFound

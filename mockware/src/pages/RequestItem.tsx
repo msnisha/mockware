@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CopyIcon, TickIcon, ViewIcon } from "../component/Icons";
-import { getRelativeTime } from "../config";
+import { getRelativeTime } from "../api";
 import { IRequest } from "../interface";
 
 const RequestItem = ({

@@ -1,3 +1,6 @@
+@import "./variables.scss";
+
+
 :root {
   --main-bg: #eaedf1;
   --main-text: #434343;
@@ -5,7 +8,7 @@
   --card-bg: #fafafa;
   --card-text: #333;
   --card-text-secondary: #9f9f9f;
-  --card-bg-inner: rgb(252, 250, 250);
+  --card-bg-inner: rgb(237 237 237);
 
   --light-bg: #fafafa;
   --light-bg-text: #333;
@@ -117,6 +120,7 @@ body {
     .overviewcard {
       background-color: var(--card-bg-dark);
 
+
       .icon {
         svg {
           fill: rgb(212, 211, 211);
@@ -180,6 +184,7 @@ body {
       .card {
         background-color: var(--card-bg-inner-dark);
         box-shadow: none;
+
       }
 
       input,
@@ -365,6 +370,8 @@ body {
       color: --var(--card-text);
     }
 
+
+
     .search-box {
       width: 500px;
       display: flex;
@@ -446,8 +453,8 @@ body {
 
   .footer {
     grid-area: footer;
-    background-color: #ffffff;
-    color: #98a6ad;
+
+    color: #105d83;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -508,6 +515,9 @@ body {
       .item.active {
         background-color: rgba(255, 255, 255, 0.2);
         color: var(--sidebar-text-active);
+        background-color: hsl(204deg 100% 40%);
+        color: #fff;
+
 
       }
     }
@@ -550,6 +560,7 @@ body {
           p {
             display: block;
             color: var(--card-text-secondary);
+            white-space: nowrap;
             margin: 4px 0px;
           }
         }
@@ -575,25 +586,40 @@ body {
     text-align: center;
     border-radius: 4px;
     opacity: .8;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 4px rgba(0, 0, 0, 0.2);
 
     &:hover {
       opacity: 1;
     }
 
+    .icon {
+      padding: 8px;
+      background-color: #6c93ba;
+      border-radius: 4px;
+    }
+
     .icon svg {
       height: 48px;
       width: 48px;
-      fill: brown;
+      fill: rgb(200, 204, 221);
     }
 
     .info {
-      font-size: 32px;
-      color: rgb(85, 74, 74);
+      font-size: 48px;
+      color: rgb(21 37 67);
+      ;
+
       font-weight: 600;
 
-      h2 {
-        color: rgb(68, 147, 211);
-        font-size: 18px;
+      p {
+        margin: 0px;
+        height: 55px;
+      }
+
+      h4 {
+        color: rgb(82 82 82 / 60%);
+
+        font-size: 16px;
         margin: 8px;
       }
     }
@@ -615,8 +641,11 @@ body {
     .card {
       margin: 16px 8px 8px 0px;
       background: var(--card-bg-inner);
-      border-radius: 0px;
+      border-radius: 4px;
 
+      .body {
+        padding: 0px;
+      }
 
       .card-header {
         font-size: 14px;
@@ -667,13 +696,42 @@ body {
     }
   }
 
+  .form-block {
+    padding-left: 4px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    /* Add some margins for each label */
+    label {
+      margin: 5px 4px 5px 28px;
+      min-width: 100px;
+      break-after: always;
+    }
+
+    input {
+      margin: 0px;
+
+    }
+
+
+    label:first-child {
+      margin-left: 0px;
+    }
+
+    /* Style the submit button */
+
+  }
+
+
   .form-inline {
     display: flex;
-    flex-flow: row wrap;
+    // flex-flow: row wrap;
     align-items: center;
-    padding-left: 4px;
-    border-left: solid 4px #4f74b8;
-    background-color: var(--form-bg);
+    // padding-left: 4px;
+    // border-left: solid 4px #4f74b8;
+    // background-color: var(--form-bg);
     padding: 8px;
 
 
@@ -682,6 +740,7 @@ body {
     label {
       margin: 5px 4px 5px 28px;
       min-width: 100px;
+      break-after: always;
     }
 
     label:first-child {
@@ -876,8 +935,8 @@ body {
 
     button,
     a {
-      padding: 8px;
       // font-size: 16px;
+      min-height: auto;
       background-color: #fff;
       border: none;
       color: #ccc;
@@ -898,6 +957,16 @@ body {
         background-color: #da744c;
         color: #fff;
       }
+    }
+
+    button {
+      padding: 6px 8px;
+    }
+
+    a {
+      padding: 9px;
+      border-radius: 4px;
+
     }
 
 
@@ -977,21 +1046,42 @@ body {
     border-radius: 2px;
     font-weight: 400;
     margin: .25em .1em;
-    font-size: smaller;
+    font-size: 14px;
 
     background: #454e56;
     color: #b2becd;
 
-    &.danger {
-      background: #9e2840;
-      color: #fff
+  }
+
+  .danger {
+    background: #9e2840 !important;
+
+    svg {
+      fill: #fff !important;
     }
 
-    &.success {
-      background: #41b883;
-      color: #35495e
+  }
+
+  .success {
+    background: #41b883 !important;
+
+    svg {
+      fill: hsl(137, 37%, 85%) !important;
+      ;
     }
   }
 
+  .warning {
+    background: #9e7d3a !important;
 
+    svg {
+      fill: hsl(49, 20%, 74%) !important;
+    }
+
+  }
+
+  p.line {
+    overflow: hidden;
+    height: 1.2em;
+  }
 }

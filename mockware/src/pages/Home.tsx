@@ -1,48 +1,59 @@
 import React from "react";
+import { getSimulatedConnectorsEndPoint, mappingEndPoint, requestsEndPoint, unmatchedReqEndPoint } from "../api";
 import { ConnectorIcon, MappingIcon, RequestIcon } from "../component/Icons";
 import Overview from "../component/Overview";
-import { IConnector, IMapping, IRequest } from "../interface";
+
+
+const getConnectorCount = (data: any) => {
+  return data.pxResultCount;
+};
+
+const getMetaTotal = (data: any) => {
+  return data.meta.total;
+};
+
+const getUnmatchedRequestCount = (data: any) => {
+  return data.requests.length;
+};
 
 const Home = ({
-  connectors,
-  mappings,
   setCurrentView,
-  HasError,
 }: {
-  connectors: Array<IConnector>;
-  mappings: Array<IMapping>;
   setCurrentView: Function;
-  HasError: boolean;
 }) => {
   return (
     <div className="overview">
       <Overview
+        dataSource={getSimulatedConnectorsEndPoint}
         icon={ConnectorIcon}
-        title="Connectors"
-        value={connectors.length + ""}
+        title="Simulated Connectors"
+        isAuthenticated={true}
+        getValueFromData={getConnectorCount}
         onClick={() => {
-          setCurrentView("Simulations");
-        }}
-        HasError={HasError}
-      />
+          setCurrentView("Connectors")
+        }} />
 
-      <Overview
-        icon={MappingIcon}
-        title="Mappings"
-        value={mappings.length + ""}
+      <Overview dataSource={mappingEndPoint} icon={MappingIcon} styleClass="warning" title="Stub mappings" isAuthenticated={false}
+        getValueFromData={getMetaTotal}
         onClick={() => {
-          setCurrentView("Mappings");
-        }}
-        HasError={HasError}
-      />
-      {/* <Overview
-        icon={RequestIcon}
-        title="Recent Requests"
-        value={requests.length + ""}
+          setCurrentView("Mappings")
+        }} />
+
+
+      <Overview dataSource={requestsEndPoint} icon={RequestIcon} title="Recent Request" isAuthenticated={false}
+        getValueFromData={getMetaTotal}
         onClick={() => {
-          setCurrentView("Requests");
-        }}
-      /> */}
+          setCurrentView("Requests")
+        }} />
+
+      <Overview dataSource={unmatchedReqEndPoint} styleClass="danger" icon={ConnectorIcon} title="Unmatched Requests"
+        isAuthenticated={true}
+        getValueFromData={getUnmatchedRequestCount}
+        onClick={() => {
+          setCurrentView("Requests")
+        }} />
+
+
     </div>
   );
 };

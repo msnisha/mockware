@@ -19,7 +19,7 @@ import {
   persistMappings,
   saveMappings,
   updateMockSetting,
-} from "../config";
+} from "../api";
 import {
   IConnector,
   IConnectorDetails,
@@ -459,7 +459,7 @@ const Connector = ({
                 >
                   <div className="heading" style={{ overflow: "hidden" }}>
                     <h3>{mapping.metadata.name}</h3>
-                    <p>
+                    <p className="line">
                       {mapping.request.method + ": " + mapping.metadata.url}
                     </p>
                   </div>
@@ -539,8 +539,8 @@ const Connector = ({
                   </div>
                 }
               >
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <div className="form-inline">
+                <div style={{ display: "flex", gap: "8px", justifyContent: "space-evenly" }}>
+                  <div className="form-block">
                     <label htmlFor="name">Scenario Name</label>
                     <input
                       type="text"
@@ -551,7 +551,7 @@ const Connector = ({
                       value={selectedMapping.metadata.name}
                     />
                   </div>
-                  <div className="form-inline">
+                  <div className="form-block">
                     <label htmlFor="method">Method</label>
                     <select
                       id="method"
@@ -566,7 +566,7 @@ const Connector = ({
                       <option value="DELETE">DELETE</option>
                     </select>
                   </div>
-                  <div className="form-inline">
+                  <div className="form-block">
                     <label htmlFor="priority">Priority</label>
                     <Priority
                       value={
@@ -574,7 +574,7 @@ const Connector = ({
                       }
                       onChange={handleFieldChange}
                     />
-                  </div><div className="form-inline">
+                  </div><div className="form-block">
                     <label htmlFor="delay">Response Delay (ms)</label>
                     <input
                       type="number"
@@ -611,7 +611,7 @@ const Connector = ({
                     }
                   >
                     {selectedMapping.metadata.pathParams.map((each, index) => {
-                      // if (each.pyParameterName == "uuid") {
+                      // if (each.pyParameterName === "uuid") {
                       //   return null;
                       // }
                       return (
@@ -681,7 +681,7 @@ const Connector = ({
                   >
                     {selectedMapping.metadata.headerParams.map(
                       (each, index) => {
-                        if (each.pyParameterName == "mockware_uuid") {
+                        if (each.pyParameterName === "mockware_uuid") {
                           return;
                         }
                         return (

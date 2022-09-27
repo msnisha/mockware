@@ -25,40 +25,30 @@ const LoginPage = ({
         style={{
           display: "flex",
           alignItems: "center",
-          padding: "30px",
-          background: "#c0cfbf",
-          borderRadius: "10px",
-          width: "50%",
-          height: "60%",
-          boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.1)",
+          justifyContent: "center",
+          background: "hsl(208deg 75% 95%)",
+          opacity: 0.9,
+          width: "100%",
+          height: "100%",
         }}
       >
-        <div style={{ flexGrow: 2 }}>
-          <div style={{ display: "inline-block" }}>
-            <Logo />
-          </div>
-          <h3 style={{ color: "#5a5555", fontSize: "24px", lineHeight: "1.6" }}>
-            Create & manage mock services <br />
-            for Pega integrations
-            <br />
-          </h3>
-        </div>
+
         <div
           style={{
-            minHeight: "400px",
-            width: "200px",
-            background: "#fafafa",
+            opacity: 1,
+            width: "300px",
+            background: "rgb(255 255 255)",
             marginLeft: "20px",
-            borderRadius: "6px",
+            borderRadius: "4px",
             padding: "20px",
-            boxShadow: "4px 4px 15px #ccc",
-            display: "flex",
-            flexDirection: "column",
-            flexGrow: 1,
+            boxShadow: "rgb(204 204 204) 0px 4px 12px",
             justifyContent: "center",
           }}
         >
-          <h1>Login</h1>
+          <Logo />
+          <p style={{ margin: "8px 0px", color: "#343434" }}>
+            Create and manage mock services for Pega integrations.
+          </p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -79,7 +69,7 @@ const LoginPage = ({
               </div>
             )}
 
-            <div className="form-inline">
+            <div style={{ display: "block", paddingRight: "16px" }}>
               <label htmlFor="username">Username</label>
               <input
                 type="text"
@@ -93,7 +83,7 @@ const LoginPage = ({
               />
             </div>
             <br />
-            <div className="form-inline">
+            <div style={{ display: "block", paddingRight: "16px" }}>
               <label htmlFor="password">Password</label>
               <input
                 type="password"

@@ -1,0 +1,164 @@
+$primary-100: hsl(206, 90%, 97%);
+$primary-200: hsl(207, 86%, 90%);
+$primary-300: hsl(207, 86%, 74%);
+$primary-400: hsl(205, 86%, 74%);
+$primary: hsl(207, 65%, 50%);
+$primary-600: hsl(210, 71%, 50%);
+$primary-700: hsl(210, 71%, 30%);
+$primary-800: hsl(210, 29%, 24%);
+$primary-900: hsl(210, 100%, 10%);
+
+$secondary-100: hsla(23, 90%, 95%);
+$secondary-200: hsl(23, 88%, 77%);
+$secondary-300: hsl(23, 95%, 69%);
+$secondary-400: hsl(23, 94%, 62%);
+$secondary: hsl(23, 97%, 50%);
+$secondary-600: hsl(23, 96%, 44%);
+$secondary-700: hsl(23, 99%, 34%);
+$secondary-800: hsl(23, 99%, 25%);
+$secondary-900: hsl(23, 100%, 15%);
+
+$grey-0: hsl(0, 0, 100%);
+$grey-100: hsl(0, 0%, 95%);
+$grey-200: hsl(0, 0%, 83%);
+$grey-300: hsl(0, 0%, 73%);
+$grey-400: hsl(0, 0%, 63%);
+$grey-500: hsl(0, 0%, 50%);
+$grey-600: hsl(0, 0%, 33%);
+$grey-700: hsl(0, 0%, 27%);
+$grey-800: hsl(0, 0%, 13%);
+$grey-900: hsl(206, 0%, 10%);
+
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace: "Roboto", "Roboto Mono", "Courier New", Courier, monospace;
+
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+$font-size-base: 16px;
+$font-size-l: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-xxxl: 32px;
+$font-size-xxxxl: 48px;
+
+$icon-size-sm: 16px;
+$icon-size-base: 20px;
+$icon-size-lg: 24px;
+$icon-size-xl: 32px;
+
+$border-radius-sm: 4rem;
+$border-radius: 8rem;
+$border-radius-lg: 0.3rem;
+$border-radius-sm: 0.2rem;
+
+$shadow-well-top: inset 0 2px 2px hsla(0, 0%, 0%, 0.1);
+$shadow-well-bottom: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+$shadow-well: $shadow-well-top, $shadow-well-bottom;
+
+$shadow-well-sm-top: inset 0 1px 1px hsla(0, 0%, 0%, 0.1);
+$shadow-well-sm-bottom: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+
+
+$shadow-well-sm: $shadow-well-sm-top, $shadow-well-sm-bottom;
+
+$shadow-popover-sm-top: inset 0 1px 0 $primary;
+$shadow-popover-sm-bottom: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+$shadow-popover-sm: $shadow-popover-sm-top, $shadow-popover-sm-bottom;
+
+$shadow-popover-top: inset 0 2px 0 $primary;
+$shadow-popover-bottom: 0 3px 10px 0 hsl(199deg 58% 80%);
+$shadow-popover: $shadow-popover-top, $shadow-popover-bottom;
+
+$shadow-default: 0 3px 10px 0 var(--shadow-default-color);
+
+$header-height: 40px;
+$header-padding: 8px;
+
+$footer-height: 40px;
+$footer-padding: 8px;
+
+$sidebar-width-expanded : 250px;
+$sidebar-width-default: 50px;
+
+$border-in-primary-dark: hsl(206deg 40% 40%);
+
+$padding-default: 8px;
+$padding-sm: 4px;
+$padding-lg: 16px;
+
+$margin-default: 8px;
+$margin-sm: 4px;
+$margin-lg: 16px;
+
+:root {
+    --body-bg-color: #{$primary-100};
+    --body-text-color: #{$grey-900};
+
+    --primary-bg-color: #{$primary};
+    --primary-text-color: #{$grey-0};
+
+    --card-bg-color: #{$grey-0};
+    --card-text-color:#{grey-900};
+
+    --bg-warning: #f8d7da;
+    --text-warning: #f5932a;
+
+    --bg-success: #d4edda;
+    --text-success: #29aa47;
+
+    --bg-info: #d1ecf1;
+    --text-info: hsl(201deg 70% 55%);
+
+
+    --bg-danger: #f8d7da;
+    --text-danger: hsl(359deg 100% 70%);
+
+    --header-bg: #{$grey-0};
+    --header-text: #{$grey-900};
+    --footer-bg: #{$primary-100};
+    --footer-text: #{$grey-900};
+
+    --sidenav-bg: #{$primary-900};
+    --sidenav-text: #{$grey-0};
+    --input-bg: #{$grey-200};
+    --input-text: #{$grey-900};
+
+    --shadow-default-color: #{$primary-200};
+}
+
+//mixing for dark mode
+@mixin dark-mode {
+    --body-bg-color: #{$grey-800};
+    --body-text-color: #{$grey-0};
+
+    --primary-bg-color: #{$grey-700};
+    --primary-text-color: #{$grey-0};
+
+    --card-bg-color: #{$grey-700};
+    --card-text-color: #{$grey-0};
+
+    --header-bg: #{$grey-700};
+    --header-text: #{$grey-0};
+    --footer-bg: #{$grey-900};
+    --footer-text: #{$grey-100};
+
+    --input-bg: #{$grey-800};
+    --input-text: #{$grey-100};
+
+    --sidenav-bg: #{$grey-900};
+    --sidenav-text: #{$grey-100};
+
+    --shadow-default-color: #{$grey-900};
+}
+
+//media query dark theme mode color overrides
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-mode;
+    }
+}
+
+//dark module manual switch
+.dark-mode {
+    @include dark-mode;
+}

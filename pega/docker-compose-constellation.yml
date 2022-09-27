@@ -1,0 +1,15 @@
+# Start of the file
+version: "3.9"
+
+services:
+
+  ui:
+    image: "pega-ui:8.7.0"
+    ports:
+    - "3443:3443"
+    # environment:
+    # - urlPath=/prweb/constellation
+    # - port=3443
+    command: port=3443 urlPath=/c11n logLevel=info
+
+    # https://docs.pega.com/cosmos-dx-components-cosmos-react/87/publishing-cosmos-dx-components

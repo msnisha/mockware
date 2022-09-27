@@ -7,7 +7,7 @@ import {
   ToggleOnIcon,
   TrashIcon,
 } from "../component/Icons";
-import { cryb53, updateMockSetting } from "../config";
+import { cryb53, updateMockSetting } from "../api";
 import { IMapping } from "../interface";
 
 const ConnectorItem = ({
@@ -34,13 +34,13 @@ const ConnectorItem = ({
     setIsSaving(true);
     updateMockSetting(
       (result: IMapping) => {
-        if (action == "delete") {
+        if (action === "delete") {
           setConnectorState("off");
-        } else if (action == "enable") {
+        } else if (action === "enable") {
           setConnectorState("Yes");
-        } else if (action == "disable") {
+        } else if (action === "disable") {
           setConnectorState("No");
-        } else if (action == "add") {
+        } else if (action === "add") {
           setConnectorState("Yes");
         }
         setIsSaving(false);
@@ -80,7 +80,7 @@ const ConnectorItem = ({
         )}
         {!IsSaving && (
           <React.Fragment>
-            {ConnectorState == "off" && (
+            {ConnectorState === "off" && (
               <a
                 href="#"
                 className="button button-big bg-default"
@@ -100,7 +100,7 @@ const ConnectorItem = ({
                 <AddIcon />
               </a>
             )}
-            {ConnectorState == "Yes" && (
+            {ConnectorState === "Yes" && (
               <React.Fragment>
                 <a
                   href="#"
@@ -150,7 +150,7 @@ const ConnectorItem = ({
                 </a>
               </React.Fragment>
             )}
-            {ConnectorState == "No" && (
+            {ConnectorState === "No" && (
               <React.Fragment>
                 <a
                   href="#"

@@ -22,19 +22,19 @@ const Sidebar = ({
   return (
     <aside className="sidenav">
       <div className="sidenav-header">
-        <Logo isSmall={isCollapsed} />
+        <Logo isSmall={isCollapsed} isDark={true} />
       </div>
 
       <ul className="list">
         <li
-          className={"item" + (currentView == "" ? " active" : "")}
+          className={"item" + (currentView === "" ? " active" : "")}
           onClick={() => selectView("")}
         >
           <HomeIcon />
           <span>Home</span>
         </li>
         <li
-          className={"item" + (currentView == "Connectors" ? " active" : "")}
+          className={"item" + (currentView === "Connectors" ? " active" : "")}
           onClick={() => selectView("Connectors")}
         >
           <ConnectorIcon />
@@ -42,21 +42,21 @@ const Sidebar = ({
         </li>
 
         <li
-          className={"item" + (currentView == "Mappings" ? " active" : "")}
+          className={"item" + (currentView === "Mappings" ? " active" : "")}
           onClick={() => selectView("Mappings")}
         >
           <MappingIcon />
           <span>Mappings</span>
         </li>
         <li
-          className={"item" + (currentView == "Requests" ? " active" : "")}
+          className={"item" + (currentView === "Requests" ? " active" : "")}
           onClick={() => selectView("Requests")}
         >
           <RequestIcon />
           <span>Requests</span>
         </li>
         <li
-          className={"item" + (currentView == "Recordings" ? " active" : "")}
+          className={"item" + (currentView === "Recordings" ? " active" : "")}
           onClick={() => selectView("Recordings")}
         >
           <RecordingIcon />
