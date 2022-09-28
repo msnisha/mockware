@@ -121,11 +121,13 @@ Also Pega envirornment should be able to reach the Wiremock server for serving t
 
 Here is the step by step installation instructions.
 
-1. Download the Pega Product file from /src/pega/rap-v1.rar file and import in any Pega 8.x application
+1. Download the Pega Product file from /src/pega/Mockware_20220919T101919378_0101_20220928T084825_GMT.zip file and import in to any Pega 8.x application
 2. Add the Mockware component as one of the built on component for your pega application.
 3. Setup a wiremock server if you don't have one. (Refer <a href="https://wiremock.org/docs/getting-started/">Wiremock Getting starter</a> for detail instruction). Wiremock can be installed as docker container or as a standalone server.
-4. Configure the Wiremock server endpoint in Pega. Change the dynamic system setting "" for this.
-5. Add the Pega portal to your access group and launch the portal
+4. Configure the Wiremock server endpoint in Pega. Change the dynamic system setting "MockwareSimRuleset" and "MockServiceEndpoint" for this.
+   MockwareSimRuleset - Is the ruleset name where Mockware will create Simulated Connector Rules.
+   MockServiceEndpoint - Wiremock server url with port
+5. Add the Mockware portal to your access group and launch the portal
 6. Your are ready to Rock :smile:
 7. Optionally you can use the mockware front end application as standalone application. You can follow the steps given in docker hub to setup the Mockware front end as stand alone application. Refer [https://hub.docker.com/r/msnisha/mockware](https://hub.docker.com/r/msnisha/mockware)
 

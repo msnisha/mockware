@@ -1,0 +1,31 @@
+{
+    "pxObjClass": "Mockware-Data",
+    "pzLoadTime": "September 27, 2022 3:38:32 PM CEST",
+    "pzPageNameHash": "_pa60482918362492pz",
+    "Settings": {
+        "Application": {
+            "Key": "Application",
+            "pxObjClass": "Mockware-Data-Setting",
+            "pxSubscript": "Application",
+            "Value": "MockwareDemo 01.01.01"
+        },
+        "MockEndpoint": {
+            "Key": "MockEndpoint",
+            "pxObjClass": "Mockware-Data-Setting",
+            "pxSubscript": "MockEndpoint",
+            "Value": "http://localhost:8091"
+        },
+        "MockRuleset": {
+            "Key": "MockRuleset",
+            "pxObjClass": "Mockware-Data-Setting",
+            "pxSubscript": "MockRuleset",
+            "Value": "MockwareSim"
+        },
+        "User": {
+            "Key": "User",
+            "pxObjClass": "Mockware-Data-Setting",
+            "pxSubscript": "User",
+            "Value": "nish"
+        }
+    }
+}

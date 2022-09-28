@@ -1,25 +1,22 @@
 import { IBodyPatternMatching, IMapping } from "./interface";
 
-export const wireMockAdminEndPoint = "http://localhost:8091/__admin/";
-export const pegaEndPoint = "http://localhost:8080/prweb/api/v1/data/";
+export const wireMockAdminEndPoint = "/json/";
+export const pegaEndPoint = "/json/";
 
-// export const wireMockAdminEndPoint = "/api/__admin/";
-// export const pegaEndPoint = "/pega/prweb/api/v1/data/";
-
-export const mappingEndPoint = wireMockAdminEndPoint + "mappings";
-const persistMappingEndPoint = wireMockAdminEndPoint + "mappings/save"
+export const mappingEndPoint = wireMockAdminEndPoint + "mappings.json";
+const persistMappingEndPoint = wireMockAdminEndPoint + "mappings/save.json"
 
 const nearMissEndPoint = wireMockAdminEndPoint + "near-misses/request-pattern";
 
-export const requestsEndPoint = wireMockAdminEndPoint + "requests";
-export const unmatchedReqEndPoint = wireMockAdminEndPoint + "requests/unmatched";
+export const requestsEndPoint = wireMockAdminEndPoint + "requests.json";
+export const unmatchedReqEndPoint = wireMockAdminEndPoint + "unmatched.json";
 
-const getAppDataEndPoint = pegaEndPoint + "D_MockwareSettings";
+const getAppDataEndPoint = pegaEndPoint + "D_MockwareSettings.json";
 
-const getAvailableConnectorsEndPoint = pegaEndPoint + "D_AvailableConnectors?";
-export const getSimulatedConnectorsEndPoint = pegaEndPoint + "D_SimulatedConnectors?";
-const getConnectorDetailsEndPoint = pegaEndPoint + "D_GetConnectorDetails?";
-const updateMockSettingEndPoint = pegaEndPoint + "D_UpdateMockSetting?";
+const getAvailableConnectorsEndPoint = pegaEndPoint + "D_AvailableConnectors.json";
+export const getSimulatedConnectorsEndPoint = pegaEndPoint + "D_SimulatedConnectors.json";
+const getConnectorDetailsEndPoint = pegaEndPoint + "D_GetConnectorDetails.";
+const updateMockSettingEndPoint = pegaEndPoint + "D_UpdateMockSetting.json";
 
 
 export const pegaCredentials = {
@@ -52,17 +49,17 @@ export const saveMappings = (
   mapping: IMapping
 ) => {
   let endPoint = mappingEndPoint;
-  let method = "POST";
+  let method = "GET";
   if (mapping.uuid !== "") {
     endPoint = endPoint + "/" + mapping.uuid;
-    method = "PUT";
+    method = "GET";
   }
   fetch(endPoint, {
     method: method,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(getMappingBody(mapping)),
+    // body: JSON.stringify(getMappingBody(mapping)),
   })
     .then((result) => result.json())
     .then((result) => after(result))
@@ -72,7 +69,7 @@ export const saveMappings = (
 export const persistMappings = () => {
   let endPoint = persistMappingEndPoint;
   fetch(endPoint, {
-    method: 'POST',
+    method: 'GET',
   })
     .then(() => console.log("Saved"))
     .catch((err) => console.log('Failed to persist saved records'));
@@ -86,7 +83,7 @@ export const deleteMappings = (
   mapping: IMapping
 ) => {
   fetch(mappingEndPoint + "/" + mapping.uuid, {
-    method: "DELETE",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
@@ -118,8 +115,8 @@ export const fetchMissRequestForStub = (
     requestBody.url = mapping.request.urlPathPattern;
   }
   fetch(nearMissEndPoint, {
-    method: "POST",
-    body: JSON.stringify(requestBody),
+    method: "GET",
+    // body: JSON.stringify(requestBody),
     headers: {
       "Content-Type": "application/json",
     },
@@ -180,10 +177,8 @@ export const fetchConnectorDetails = (
 ) => {
   fetch(
     getConnectorDetailsEndPoint +
-    "pyClassName=" +
-    clasName +
-    "&pyServiceName=" +
-    serviceName,
+    serviceName +
+    ".json",
     {
       method: "GET",
       headers: pegaAuthHeaders(),
@@ -205,7 +200,7 @@ export const updateMockSetting = (
 ) => {
   fetch(
     updateMockSettingEndPoint +
-    "pyClassName=" +
+    "?pyClassName=" +
     clasName +
     "&pyServiceName=" +
     serviceName +

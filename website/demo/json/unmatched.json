@@ -1,0 +1,83 @@
+{
+    "requests": [
+        {
+            "url": "/data/2.5/forecast?q=Amsterdam&appid=f952069c853fdc392d4015d3c8bd04b3",
+            "absoluteUrl": "http://localhost:8091/data/2.5/forecast?q=Amsterdam&appid=f952069c853fdc392d4015d3c8bd04b3",
+            "method": "GET",
+            "clientIp": "10.0.0.2",
+            "headers": {
+                "mockware_uuid": "7441245099125880",
+                "key": "4DA63F3321C943A7AF75FCFE08482A4C",
+                "Accept-Version": "2",
+                "Content-Type": "application/json",
+                "User-Agent": "PostmanRuntime/7.29.2",
+                "Accept": "*/*",
+                "Postman-Token": "23dd18e3-54d2-4422-a684-f4c6c6fcfe1d",
+                "Host": "localhost:8091",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Connection": "keep-alive",
+                "Content-Length": "67"
+            },
+            "cookies": {},
+            "browserProxyRequest": false,
+            "loggedDate": 1664275296194,
+            "bodyAsBase64": "ew0KICAgICJ1c2VyIjp7DQogICAgIkN1c3RvbWVySWQiOiAxMDAwMCwNCiAgICAiYWdlIjoxMg0KDQogICAgfQ0KfQ==",
+            "body": "{\r\n    \"user\":{\r\n    \"CustomerId\": 10000,\r\n    \"age\":12\r\n\r\n    }\r\n}",
+            "scheme": "http",
+            "host": "localhost",
+            "port": 8091,
+            "loggedDateString": "2022-09-27T10:41:36Z",
+            "queryParams": {
+                "q": {
+                    "key": "q",
+                    "values": [
+                        "Amsterdam"
+                    ]
+                },
+                "appid": {
+                    "key": "appid",
+                    "values": [
+                        "f952069c853fdc392d4015d3c8bd04b3"
+                    ]
+                }
+            }
+        },
+        {
+            "url": "/StockData?symbol=AAPLS",
+            "absoluteUrl": "http://localhost:8091/StockData?symbol=AAPLS",
+            "method": "GET",
+            "clientIp": "10.0.0.2",
+            "headers": {
+                "mockware_uuid": "7441245099125880",
+                "key": "4DA63F3321C943A7AF75FCFE08482A4C",
+                "Accept-Version": "2",
+                "Content-Type": "application/json",
+                "User-Agent": "PostmanRuntime/7.29.2",
+                "Accept": "*/*",
+                "Postman-Token": "114a635a-81e9-4059-9eef-1b508cff2b28",
+                "Host": "localhost:8091",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Connection": "keep-alive",
+                "Content-Length": "67"
+            },
+            "cookies": {},
+            "browserProxyRequest": false,
+            "loggedDate": 1664272816114,
+            "bodyAsBase64": "ew0KICAgICJ1c2VyIjp7DQogICAgIkN1c3RvbWVySWQiOiAxMDAwMCwNCiAgICAiYWdlIjoxMg0KDQogICAgfQ0KfQ==",
+            "body": "{\r\n    \"user\":{\r\n    \"CustomerId\": 10000,\r\n    \"age\":12\r\n\r\n    }\r\n}",
+            "scheme": "http",
+            "host": "localhost",
+            "port": 8091,
+            "loggedDateString": "2022-09-27T10:00:16Z",
+            "queryParams": {
+                "symbol": {
+                    "key": "symbol",
+                    "values": [
+                        "AAPLS"
+                    ]
+                }
+            }
+        }
+    ],
+    "requestJournalDisabled": false
+}

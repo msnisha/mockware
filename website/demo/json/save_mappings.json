@@ -1,0 +1,103 @@
+{
+    "id": "5d46b440-102d-436e-94ad-955bb70d707b",
+    "request": {
+        "urlPath": "/StockData",
+        "method": "GET",
+        "headers": {
+            "mockware_uuid": {
+                "equalTo": "7441245099125880"
+            },
+            "key": {
+                "equalTo": "4DA63F3321C943A7AF75FCFE08482A4C"
+            },
+            "Accept-Version": {
+                "equalTo": "2"
+            }
+        },
+        "queryParameters": {},
+        "bodyPatterns": []
+    },
+    "response": {
+        "status": 200,
+        "body": "{\n\t\"status\": \"success\"\n}",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "fixedDelayMilliseconds": 0
+    },
+    "uuid": "5d46b440-102d-436e-94ad-955bb70d707b",
+    "priority": 1,
+    "metadata": {
+        "name": "Stub 3",
+        "url": "/StockData",
+        "pyClassName": "MyOrg-Int-Stock-StockAPI",
+        "pyRuleName": "Stock",
+        "uniqueCode": "7441245099125880",
+        "pathParams": [
+            {
+                "pxObjClass": "Embed-URL-Parameter-ResourcePath",
+                "pyEmptyBehavior": "REQUIRED",
+                "pyEncoding": "URL",
+                "pyMapFrom": "CONSTANT",
+                "pyMapFromKey": "StockData",
+                "pyParameterName": "StockData",
+                "matchType": "equals",
+                "matchValue": "StockData"
+            }
+        ],
+        "queryParams": [
+            {
+                "pxObjClass": "Embed-InterfaceParameter",
+                "pyDesc": "symbol",
+                "pyMapFrom": "Clipboard",
+                "pyMapFromKey": ".request.query_GET.symbol",
+                "pyParameterName": "symbol",
+                "matchType": "any",
+                "matchValue": ""
+            }
+        ],
+        "headerParams": [
+            {
+                "pyMapFrom": "CONSTANT",
+                "pyMapFromKey": "",
+                "matchType": "equals",
+                "matchValue": "7441245099125880",
+                "pyParameterName": "mockware_uuid"
+            },
+            {
+                "pxObjClass": "Embed-InterfaceParameter",
+                "pyMapFrom": "Constant",
+                "pyMapFromKey": "7441245099125880",
+                "pyParameterName": "mockware_uuid",
+                "matchType": "equals",
+                "matchValue": "7441245099125880"
+            },
+            {
+                "pxObjClass": "Embed-InterfaceParameter",
+                "pyMapFrom": "Constant",
+                "pyMapFromKey": "4DA63F3321C943A7AF75FCFE08482A4C",
+                "pyParameterName": "key",
+                "matchType": "equals",
+                "matchValue": "4DA63F3321C943A7AF75FCFE08482A4C"
+            },
+            {
+                "pxObjClass": "Embed-InterfaceParameter",
+                "pyMapFrom": "Constant",
+                "pyMapFromKey": "2",
+                "pyParameterName": "Accept-Version",
+                "matchType": "equals",
+                "matchValue": "2"
+            }
+        ],
+        "bodyParams": [],
+        "respHeaderParams": [
+            {
+                "pyMapFrom": "CONSTANT",
+                "pyMapFromKey": "",
+                "matchType": "equals",
+                "matchValue": "application/json",
+                "pyParameterName": "Content-Type"
+            }
+        ]
+    }
+}

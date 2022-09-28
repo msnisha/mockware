@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mockware:
+    image: nginx:1.23.0
+    deploy:
+      replicas: 1
+    volumes:
+      - ./demo:/app
+      - ./web:/web
+      - ./conf:/etc/nginx/conf.d
+    networks:
+      - ninthuweb
+      - overlay
+
+networks:
+  ninthuweb:
+    external: true
+    name: ninthuweb
+  overlay:
