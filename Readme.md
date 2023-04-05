@@ -14,6 +14,8 @@
   <p align="center">
     An awesome Pega Community Hackathon 2022 Project!
     <br />
+    <a href="https://mockware.xyz/">Project Home</a>
+    .
     <a href="https://demo.mockware.xyz">View Demo</a>
     ·
     <a href="https://github.com/msnisha/mockware/issues">Report Bug</a>
@@ -29,8 +31,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">The History</a></li>
-        <li><a href="#built-with">The Technical Details</a></li>
+        <li><a href="#the-history">The History</a></li>
+        <li><a href="#The-technical-details">The Technical Details</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -39,7 +41,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#installation">Configurations</a></li>
+        <li><a href="#configurations">Configurations</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
